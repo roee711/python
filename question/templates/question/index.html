@@ -1,0 +1,25 @@
+ <! template  all questions !>
+<h1> list question </h1>
+{% if question_list %}
+    <table border="1">
+	    <tr>
+		 	<th> Title</th>
+			<th> Descipition</th>
+			<th> Author</th>
+			<th> View Question </th>
+
+		</tr>
+    {% for question in question_list %}
+    <tr>
+
+        <td><a href="{% url 'detail' question.id %}">{{ question.title }}</a></td>
+         <td>{{question.descipition }}</td>
+          <td>{{question.author }}</td>
+           <td><a href="{% url 'detail' question.id %}"> view</a></td>
+            
+            
+    {% endfor %}
+     </table>
+{% else %}
+    <p>No question are available.</p>
+{% endif %}
